@@ -5,67 +5,51 @@
 [ext_resource type="PackedScene" uid="uid://bynpe2gu1qit6" path="res://spikes.tscn" id="3_s0cxi"]
 [ext_resource type="PackedScene" uid="uid://dyjs8qsa2rhul" path="res://heart.tscn" id="4_v8tta"]
 [ext_resource type="PackedScene" uid="uid://c5f8yogkxkpkf" path="res://level_completed.tscn" id="5_khmqm"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xp8yj"]
-size = Vector2(16, 48)
+[ext_resource type="PackedScene" uid="uid://c2re3tlnd2x0a" path="res://level_tile_map.tscn" id="6_dq6oc"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_b5p8s")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_mask = 0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(8, 32)
-polygon = PackedVector2Array(-8, -32, 24, -32, 24, 88, 64, 104, 88, 88, 88, 72, 112, 88, 128, 88, 128, 104, 144, 120, 168, 120, 176, 104, 192, 88, 208, 104, 224, 104, 224, 96, 240, 96, 240, 64, 256, 64, 256, 120, 288, 120, 288, -56, 312, -56, 312, 128, 312, 152, -8, 152)
-
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
-
 [node name="Player" parent="." instance=ExtResource("2_n0pvt")]
 position = Vector2(49, 111)
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(49, 111)
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(207, -87)
-shape = SubResource("RectangleShape2D_xp8yj")
-
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D2"]
-offset_left = 199.0
-offset_top = -111.0
-offset_right = 215.0
-offset_bottom = -63.0
-
 [node name="Spikes" parent="." instance=ExtResource("3_s0cxi")]
-position = Vector2(152, 152)
+position = Vector2(144, 160)
 
 [node name="Spikes2" parent="." instance=ExtResource("3_s0cxi")]
-position = Vector2(160, 152)
+position = Vector2(160, 160)
 
 [node name="Spikes3" parent="." instance=ExtResource("3_s0cxi")]
-position = Vector2(264, 152)
+position = Vector2(256, 160)
 
 [node name="Spikes4" parent="." instance=ExtResource("3_s0cxi")]
-position = Vector2(280, 152)
+position = Vector2(272, 160)
 
 [node name="Heart" parent="." instance=ExtResource("4_v8tta")]
-position = Vector2(131, 115)
+position = Vector2(136, 136)
 
 [node name="Heart2" parent="." instance=ExtResource("4_v8tta")]
-position = Vector2(280, 27)
+position = Vector2(285, 27)
 
 [node name="Heart3" parent="." instance=ExtResource("4_v8tta")]
-position = Vector2(256, -6)
+position = Vector2(257, -10)
 
 [node name="Heart4" parent="." instance=ExtResource("4_v8tta")]
-position = Vector2(44, 38)
+position = Vector2(41, 65)
 
 [node name="Heart5" parent="." instance=ExtResource("4_v8tta")]
-position = Vector2(223, 128)
+position = Vector2(248, 116)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="LevelCompleted" parent="CanvasLayer" instance=ExtResource("5_khmqm")]
 visible = false
+
+[node name="LevelTileMap" parent="." instance=ExtResource("6_dq6oc")]
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 1, 131072, 0, 1, 196608, 0, 1, 262144, 0, 1, 327680, 0, 1, 393216, 0, 1, 458752, 0, 1, 524288, 0, 1, 589824, 0, 1, 655360, 0, 1, 720896, 0, 2, 720897, 65536, 2, 720898, 65536, 2, 720899, 65536, 2, 720900, 65536, 2, 720901, 65536, 2, 720902, 65536, 2, 720903, 65536, 2, 720904, 65536, 2, 720905, 65536, 2, 655370, 65536, 0, 655371, 65536, 0, 655372, 393216, 2, 655373, 65536, 1, 655374, 65536, 1, 655375, 327680, 2, 655376, 65536, 0, 655377, 65536, 0, 655378, 65536, 0, 720914, 65536, 2, 720913, 65536, 2, 720912, 65536, 2, 720911, 65536, 2, 720910, 65536, 2, 720909, 65536, 2, 720908, 65536, 2, 720907, 65536, 2, 720906, 65536, 2, 655361, 65536, 1, 655362, 65536, 1, 655363, 65536, 1, 655364, 65536, 1, 655365, 65536, 1, 655366, 65536, 1, 655367, 65536, 1, 655368, 327680, 2, 655369, 65536, 0, 655379, 393216, 2, 720915, 65536, 2, 1, 131072, 0, 65537, 131072, 1, 131073, 131072, 1, 196609, 131072, 1, 262145, 131072, 1, 327681, 131072, 1, 393217, 131072, 1, 458753, 131072, 1, 524289, 327680, 2, 589825, 65536, 1, 589826, 327680, 2, 589827, 65536, 0, 589828, 65536, 1, 589829, 65536, 1, 589830, 65536, 1, 589831, 65536, 1, 589832, 131072, 0, 524290, 131072, 0, -65517, 0, 1, 19, 0, 1, 65555, 0, 1, 131091, 0, 1, 196627, 0, 1, 262163, 0, 1, 327699, 0, 1, 393235, 0, 1, 458771, 0, 1, 524307, 0, 1, 589843, 0, 1, 589836, 262144, 2, 589837, 65536, 0, 589838, 65536, 1, 524300, 196608, 0, 524294, 65536, 1, 524293, 65536, 1, 524295, 131072, 1, 720916, 131072, 2, 655380, 131072, 1, 589844, 131072, 1, 524308, 131072, 1, 458772, 131072, 1, 393236, 131072, 1, 327700, 131072, 1, 262164, 131072, 1, 196628, 131072, 1, 131092, 131072, 1, 65556, 131072, 1, 20, 131072, 1, -65516, 131072, 1, -131052, 131072, 0, -131053, 0, 0, 16, 131072, 0, 15, 0, 0, 65551, 0, 1, 131087, 0, 1, 131088, 131072, 1, 65552, 131072, 1, 458758, 65536, 0, 196624, 131072, 1, 196623, 0, 1, 262160, 131072, 2, 262159, 0, 2, 589839, 131072, 1, 524303, 131072, 0, 458757, 1, 0, 458759, 393218, 0, 524292, 1, 0, 524302, 1, 0)
+
+[node name="Spikes5" parent="." instance=ExtResource("3_s0cxi")]
+position = Vector2(176, 160)
+
+[node name="Spikes6" parent="." instance=ExtResource("3_s0cxi")]
+position = Vector2(288, 160)
