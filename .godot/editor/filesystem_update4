@@ -1,2 +1,4 @@
+res://start_menu.tscn
 res://world.tscn
-res://player.gd
+res://level_transition.tscn
+res://start_menu.gd
